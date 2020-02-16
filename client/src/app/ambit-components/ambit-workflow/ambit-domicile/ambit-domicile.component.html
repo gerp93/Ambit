@@ -1,0 +1,17 @@
+<mat-card>
+  <h2>Prospective New Addresses</h2>
+  <mat-slide-toggle (click)="toggleCurrentAddress()">Compare with current address</mat-slide-toggle>
+  <mat-form-field *ngIf="displayCurrentAddress">
+    <mat-label>Current Address</mat-label>
+    <input matInput placeholder="123 Main St, Little Canada, Minnesota 55117">
+  </mat-form-field>
+  <ng-container *ngFor="let x of newAddresses; let i=index">
+    <mat-form-field>
+      <mat-label>Possible New Address</mat-label>
+      <input matInput placeholder="123 Main St, Little Canada, Minnesota 55117">
+    </mat-form-field>
+    <button *ngIf="i > 0" mat-button (click)="removeAddress(i)"><mat-icon>remove</mat-icon></button>
+  </ng-container>
+  <button mat-button (click)="addAddress()"><mat-icon>add</mat-icon></button>
+
+
