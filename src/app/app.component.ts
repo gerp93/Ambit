@@ -1,3 +1,5 @@
+import { AmbitNavigationComponent } from './navigation/ambit-navigation/ambit-navigation.component';
+import { AmbitNavigationModule } from './navigation/ambit-navigation/ambit-navigation.module';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ambit';
+  showNav: boolean = false;
+
+  toggleNav() {
+    this.showNav = !this.showNav;
+  }
+
 }
+

@@ -1,0 +1,41 @@
+<mat-card>
+  <h2>Places I Go</h2>
+  <p>Choose the places you care about. You can mix and match specific addresses (i.e. your grandma's house), names of specific businesses/POIs (i.e. your favorite coffee shop), or categories (i.e grocery store).</p>
+  <button mat-stroked-button>Import Saved POI List <mat-icon>folder</mat-icon></button>
+  <button mat-stroked-button>Save POI List <mat-icon>save</mat-icon></button>
+  <mat-divider></mat-divider>
+  <mat-list>
+    <mat-list-item *ngFor="let poi of pois; let i = index;">
+      <mat-form-field>
+      <mat-label>POI {{i + 1}}</mat-label>
+      <input matInput value="{{poi}}">
+      </mat-form-field>
+    </mat-list-item>
+  </mat-list>
+  <mat-divider></mat-divider>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Suggested POIs
+        </mat-panel-title>
+        <mat-panel-description>
+          Have a feeling you're missing something?  Check out these suggestions:
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-grid-list cols="8" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let poi of suggestedPois; let i = index">
+          <mat-checkbox (click)="toggleSuggestedPoi(poi)">{{poi}}</mat-checkbox>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <p>Don't forget these!  Unfortunately, we don't know where these are (that would be creepy), so you'll have to fill them in yourself.</p>
+      <ul>
+        <li>Addresses of relatives, friends, etc.</li>
+        <li>Your work address</li>
+        <li>Address or name of your doctor's and/or dentist's office</li>
+        <li>Address or name of your doctor's and/or dentist's office</li>
+        <li>Specific names of your favorite restaurants, coffee shops, or your gym</li>
+        <li>Anywhere else you frequent</li>
+      </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
